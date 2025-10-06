@@ -1,0 +1,33 @@
+// Yasser Ogando 10/1/25
+//
+// Notes: Use plugin input like other directories
+plugins {id 'com.android.library'
+
+    //To enable KOTLIN
+    id 'org.jetbrains.kotlin.android'
+}
+android {
+    namespace 'org.solovyev.android.plotter.lib'    // name
+    compileSdkVersion versions.sdk.compile          //Android api level: build.gradle
+    defaultConfig {
+        minSdkVersion versions.sdk.min
+        targetSdkVersion versions.sdk.target
+    }
+    buildTypes {                            //BuildTypes control how the library is built:
+        release {                           // name of build
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8     //Extra precaution
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    //could be source of id plot_3d_button error.
+}
